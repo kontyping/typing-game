@@ -1,1 +1,37 @@
-<h1>こんにちは！<h1>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイピングゲーム（システム脆弱性の題材）</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>タイピングゲーム</h1>
+        <p class="description">以下の文字を正しく入力してください。</p>
+        
+        <!-- タイピング問題エリア -->
+        <div id="word-display" class="word-display">vulnerable</div>
+        <input type="text" id="typing-input" placeholder="ここに入力..." autocomplete="off">
+        
+        <!-- クリア後のランキング登録エリア（初期状態は非表示） -->
+        <div id="result-area" class="result-area hidden">
+            <h2>クリア！</h2>
+            <p>ランキングに載せる名前を入力してください：</p>
+            <input type="text" id="username-input" placeholder="名前を入力（例: ユーザーA）">
+            <button id="submit-btn">登録</button>
+        </div>
+
+        <!-- ランキング表示エリア（ここに脆弱性があります） -->
+        <div class="ranking-section">
+            <h3>最近のクリアプレーヤー</h3>
+            <div id="ranking-list">
+                <!-- JavaScriptからプレイヤー名が挿入されます -->
+                <p>プレイヤー: サンプル太郎</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
